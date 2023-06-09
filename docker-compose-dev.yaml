@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+    sonarqube:
+        container_name: sonarqube
+        build: .
+        volumes:
+            - "./data-local:/media/sonarqube"
+        ports:
+            - "80:80"
