@@ -16,10 +16,12 @@ RUN ln --symbolic --force /media/sonarqube/logs /opt/sonarqube
 COPY --from=sonarqube /opt/sonarqube /opt/sonarqube
 COPY --from=mc1arke/sonarqube-with-community-branch-plugin \
     /opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-*.jar \
-    /opt/sonarqube/extensions/plugins/
+    /opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin.jar
 
 ENV DATABASE_JDBC_URL=""
 ENV FRONTEND_URL=""
+ENV SONAR_CE_JAVAOPTS="-javaagent:./extensions/plugins/sonarqube-community-branch-plugin.jar=ce"
+ENV SONAR_WEB_JAVAOPTS="-javaagent:./extensions/plugins/sonarqube-community-branch-plugin.jar=web"
 ENV SONAR_WEB_PORT="80"
 
 COPY entrypoint.sh /entrypoint.sh
