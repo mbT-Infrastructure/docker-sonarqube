@@ -9,11 +9,13 @@ FROM madebytimo/java
 RUN mkdir --parents /media/sonarqube/data
 RUN mkdir --parents /media/sonarqube/logs
 RUN mkdir /opt/sonarqube
-RUN chown --recursive user /media/sonarqube
 RUN ln --symbolic --force /media/sonarqube/data /opt/sonarqube
 RUN ln --symbolic --force /media/sonarqube/logs /opt/sonarqube
 
 COPY --from=sonarqube /opt/sonarqube /opt/sonarqube
+COPY --from=mc1arke/sonarqube-with-community-branch-plugin \
+    /opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-*.jar \
+    /opt/sonarqube/extensions/plugins/
 
 ENV DATABASE_JDBC_URL=""
 ENV FRONTEND_URL=""
