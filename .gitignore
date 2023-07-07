@@ -5,6 +5,7 @@ builds
 data-local
 node_modules
 target
+test-results
 
 # files
 .iml
