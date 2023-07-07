@@ -2,6 +2,7 @@ FROM sonarqube:community AS sonarqube
 
 USER root
 RUN rm -r /opt/sonarqube/data /opt/sonarqube/logs
+USER sonarqube
 
 
 FROM madebytimo/java
