@@ -1,5 +1,6 @@
 # folders
 .idea
+.temp*
 .vscode
 builds
 data-local
