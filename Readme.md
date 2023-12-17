@@ -1,6 +1,7 @@
 # sonarqube image
 
-This Docker image contains a sonarqube installation.
+This Docker image contains a sonarqube installation with the
+[Sonarqube Community Branch Plugin](https://github.com/mc1arke/sonarqube-community-branch-plugin).
 
 ## Environment variables
 
